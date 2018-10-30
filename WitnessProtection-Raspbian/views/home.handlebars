@@ -1,0 +1,26 @@
+<h2 class="page-header">WitnessProtection</h2>
+<h2>{{log}}</h2>
+<p>Your Latest Notifications can be Found Below.</p>
+
+
+
+{{#if notifications}}
+    <table style="width:100%" border="1">
+      <tr>
+        <th>Notification:</th>
+        <th>Time:</th>
+        <th>Date:</th>
+      </tr>
+        {{#each notifications}}
+            <tr>
+                <td>{{[Notification]}}</td>
+                <td>{{Time}}</td>
+                <td>{{Date}}</td>
+
+
+            </tr>
+        {{/each}}
+    </table>
+{{else}}
+    <h3>GUI Notifications are not currently supported in this tool. Refer to the terminal for status updates.</h3>
+{{/if}}
