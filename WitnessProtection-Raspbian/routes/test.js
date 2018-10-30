@@ -136,6 +136,7 @@ function getThresh(witnessName){
 		process.env.threshold = thresh;
 		console.log("Initializing Thresh to: ".yellow.bold+ process.env.threshold.green.bold);
 
+
 });
 }
 
@@ -244,17 +245,19 @@ Step 3: Update witness node to next node.
 			throw new Error(err);
 		}
 
+		switches++;
+		console.log("Switches set to: ".red.bold + switches.toString().green.bold);
+		console.log("Working on Server backup".red.bold);
+		console.log("Switching to main".red.bold);
+		console.log("\n");
+		if (switches === 1){
+			process.exit();
+		}
+
 //MAYBE CODE FOR SWITCH FAIL SHOULD GO HERE.
 
 	});
-	switches++;
-	console.log("Switches set to: ".red.bold + switches.toString().green.bold);
-	console.log("Working on Server backup".red.bold);
-	console.log("Switching to main".red.bold);
-	console.log("\n");
-	if (switches === 1){
-		// process.exit();
-	}
+
 }
 
 
@@ -264,16 +267,18 @@ wls.broadcast.witnessUpdate(activeKey, witnessName, witnessLink, backupKey, prop
 		throw new Error(err);
 	}
 
+	switches++;
+	console.log("Switches set to: ".red.bold + switches.toString().green.bold);
+	console.log("Working on Server Main".red.bold);
+	console.log("Switching to Backup".red.bold);
+	console.log("\n");
+	if (switches === 1){
+		process.exit();
+	}
+
 });
 
-switches++;
-console.log("Switches set to: ".red.bold + switches.toString().green.bold);
-console.log("Working on Server Main".red.bold);
-console.log("Switching to Backup".red.bold);
-console.log("\n");
-if (switches === 1){
-	// process.exit();
-}
+
 }
 });
 }
