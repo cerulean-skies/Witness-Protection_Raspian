@@ -330,7 +330,7 @@ router.post('/updateENV', function(req, res){
 	let NotificationGmail_Login = req.body.NotificationGmail_Password;
 
 	let node_chain_id = process.env.node_chain_id;
-	let node_address_prefix = process.env.node_chain_id;
+	let node_address_prefix = process.env.node_address_prefix;
 	let node_URL = process.env.node_URL;
 
 
